@@ -5,15 +5,17 @@ public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager Instance;
 
-    public bool IsPaused { get; private set; }
-    public bool IsGameOver { get; private set; }
-
+    [Header("UI")]
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject victoryPanel;
+    [SerializeField] private GameObject gameplayPanel;
+
+    public GameState CurrentState { get; private set; } = GameState.Playing;
 
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
@@ -26,54 +28,93 @@ public class GameStateManager : MonoBehaviour
     {
         pausePanel.SetActive(false);
         gameOverPanel.SetActive(false);
+        victoryPanel.SetActive(false);
+        gameplayPanel.SetActive(true);
+
+        Time.timeScale = 1f;
+        CurrentState = GameState.Playing;
+    }
+
+    public void TogglePause()
+    {
+        if (CurrentState == GameState.GameOver ||
+            CurrentState == GameState.Victory)
+        {
+            return;
+        }
+
+        if (CurrentState == GameState.Paused)
+        {
+            ResumeGame();
+        }
+        else
+        {
+            PauseGame();
+        }
+    }
+
+    private void PauseGame()
+    {
+        CurrentState = GameState.Paused;
+
+        pausePanel.SetActive(true);
+
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        CurrentState = GameState.Playing;
+
+        pausePanel.SetActive(false);
+        gameplayPanel.SetActive(true);
 
         Time.timeScale = 1f;
     }
 
     public void TriggerGameOver()
     {
-        IsGameOver = true;
+        if (CurrentState == GameState.GameOver)
+            return;
+
+        CurrentState = GameState.GameOver;
+
+        gameplayPanel.SetActive(false);
 
         pausePanel.SetActive(false);
         gameOverPanel.SetActive(true);
+        victoryPanel.SetActive(false);
 
         Time.timeScale = 0f;
     }
 
-    public void TogglePause()
+    public void TriggerVictory()
     {
-        if (IsGameOver)
+        if (CurrentState == GameState.Victory)
             return;
 
-        if (IsPaused)
-            Resume();
-        else
-            Pause();
-    }
+        CurrentState = GameState.Victory;
 
-    private void Pause()
-    {
-        IsPaused = true;
-        pausePanel.SetActive(true);
-        Time.timeScale = 0f;
-    }
+        gameplayPanel.SetActive(false);
 
-    private void Resume()
-    {
-        IsPaused = false;
         pausePanel.SetActive(false);
-        Time.timeScale = 1f;
+        gameOverPanel.SetActive(false);
+        victoryPanel.SetActive(true);
+
+        Time.timeScale = 0f;
     }
 
     public void Retry()
     {
         Time.timeScale = 1f;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void BackToMenu()
     {
         Time.timeScale = 1f;
+
         SceneManager.LoadScene("MainMenu");
     }
 }

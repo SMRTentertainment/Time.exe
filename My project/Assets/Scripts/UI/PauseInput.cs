@@ -19,9 +19,6 @@ public class PauseInput : MonoBehaviour
 
     private void OnPause(InputAction.CallbackContext context)
     {
-        if (GameStateManager.Instance.IsGameOver)
-            return;
-
         GameStateManager.Instance.TogglePause();
     }
 }
