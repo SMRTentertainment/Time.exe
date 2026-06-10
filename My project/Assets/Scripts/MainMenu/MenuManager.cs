@@ -1,99 +1,94 @@
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class MenuManager : MonoBehaviour
 {
-    [Header("Mouse configuration")] 
-    
-    [SerializeField] private Transform pendriveCursor;
-    [SerializeField] private float zDistance = 10f;
-    
-    [Header("Sound configuration")]
-    [SerializeField] private AudioSource USBsfx; 
-    [SerializeField] private AudioClip USBConected;   
-    [SerializeField] private AudioClip USBDisconected; 
     private bool isConected = false;
 
-    void Start()
+    [Header("Mouse configuration")] [SerializeField]
+    private Transform pendriveCursor;
+    [SerializeField] private float zDistance = 10f;
+
+
+    [Header("Sound configuration")]
+    [SerializeField] private AudioSource USBsfx;
+    [SerializeField] private AudioClip USBConected;
+    [SerializeField] private AudioClip USBDisconected;
+
+    [Header("Our New Managers")] 
+    [SerializeField] private ScreenTransitionManager transitionManager;
+    [SerializeField] private MenuUI uiManager;
+
+void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
-        if (USBsfx == null)
-        {
-            USBsfx = GetComponent<AudioSource>();
-        }
+        
+        if (USBsfx == null) {USBsfx = GetComponent<AudioSource>();}
+        
+        if (transitionManager != null) transitionManager.ResetCameras();
+        if (uiManager != null) uiManager.HideAllMenus();
     }
 
     void Update()
     {
         if (isConected)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                isConected = false;
-                Debug.Log("Pendrive deconectado");
-                PlaySound(USBDisconected);
+                DisconnectUSB();
             }
             return;
         }
-
-        if (pendriveCursor is not null)
-        {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = zDistance;
-
-            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
-
-            pendriveCursor.position = worldPosition;
-        }
+        MovePendriveWithMouse();
     }
 
+    public void RegisterUSBConnection(string action, Vector3 PortPosition)
+    {
+        if (isConected) return; 
+        isConected = true;
+
+        if (pendriveCursor != null) pendriveCursor.position = PortPosition;
+        PlaySound(USBConected);
+
+        if (transitionManager != null)
+        {
+            transitionManager.StartTransitionSequence(() => 
+            {
+                if (uiManager != null)
+                {
+                    uiManager.ShowMenu(action);
+                }
+            });
+        }
+    }
+    
+    private void DisconnectUSB()
+    {
+        isConected = false;
+        PlaySound(USBDisconected);
+        
+        if (transitionManager != null) transitionManager.ResetCameras();
+        if (uiManager != null) uiManager.HideAllMenus();
+    }
+    private void MovePendriveWithMouse()
+    {
+        if (pendriveCursor != null)
+        {
+            if (pendriveCursor != null)
+            {
+                Vector3 mousePos = Input.mousePosition;
+                mousePos.z = zDistance;
+                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
+                pendriveCursor.position = worldPosition;
+            }
+        }
+    }
     private void PlaySound(AudioClip clip)
     {
         if (USBsfx != null && clip != null)
         {
             USBsfx.PlayOneShot(clip);
         }
-    }
-
-    public void RegisterUSBConnection(string action, Vector3 PortPosition)
-    {
-        if (isConected) return;
-
-        isConected = true;
-        pendriveCursor.position = PortPosition;
-        PlaySound(USBConected);
-
-        switch (action)
-        {
-            case "PLAY":
-                PlayButton();
-                break;
-            case "OPTIONS":
-                OptionsButton();
-                break;
-            case "EXIT":
-                ExitButton();
-                break;
-        }
-    }
-
-    private void PlayButton()
-    {
-        Debug.Log("Conectado en PLAY: Moviendo cámara al monitor...");
-    }
-
-    private void OptionsButton()
-    {
-        Debug.Log("Conectado en OPTIONS: Abriendo menú de opciones...");
-    }
-
-    private void ExitButton()
-    {
-        Debug.Log("Conectado en EXIT: Cerrando aplicación...");
-    }
-
-    private void QuitGame()
-    {
-        Application.Quit();
     }
 }
