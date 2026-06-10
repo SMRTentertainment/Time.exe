@@ -9,6 +9,8 @@ public class SurvivalTimer : MonoBehaviour
     private float currentTime;
     private bool timerFinished;
 
+    public float CurrentTime => currentTime;
+
     private void Start()
     {
         currentTime = startTime;

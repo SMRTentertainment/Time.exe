@@ -8,16 +8,20 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Transform player;
 
+    private float originalSpeed;
+
     public float MoveSpeed => moveSpeed;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        originalSpeed = moveSpeed;
     }
 
     private void Start()
     {
-        PlayerMovement playerMovement = FindFirstObjectByType<PlayerMovement>();
+        PlayerMovement playerMovement =
+            FindFirstObjectByType<PlayerMovement>();
 
         if (playerMovement != null)
         {
@@ -27,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (player == null)
+        if (player == null || moveSpeed <= 0f)
             return;
 
         Vector2 direction =
@@ -43,9 +47,16 @@ public class EnemyMovement : MonoBehaviour
     {
         moveSpeed = newSpeed;
     }
+
+    public void RestoreOriginalSpeed()
+    {
+        moveSpeed = originalSpeed;
+    }
+
     public void SetCollidersEnabled(bool enabled)
     {
-        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+        Collider2D[] colliders =
+            GetComponentsInChildren<Collider2D>();
 
         foreach (Collider2D collider in colliders)
         {

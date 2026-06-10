@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float maxHealth = 10f;
 
     private float currentHealth;
+    public EnemyPool Pool { get; set; }
 
     public float CurrentHealth => currentHealth;
     public float MaxHealth => maxHealth;
@@ -39,6 +40,6 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        Pool.ReturnEnemy(gameObject);
     }
 }
