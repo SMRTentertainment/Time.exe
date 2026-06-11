@@ -49,6 +49,39 @@ public class ScreenTransitionManager : MonoBehaviour
         }
         fadeGroup.alpha = 0f;
     }
+    
+    public void StartReturnSequence(System.Action onBlackComplete)
+    {
+        StartCoroutine(TransitionReturnRoutine(onBlackComplete));
+    }
+    
+    private IEnumerator TransitionReturnRoutine(System.Action onBlackComplete)
+    {
+        fadeGroup.alpha = 1f; 
+
+        onBlackComplete?.Invoke();
+        yield return new WaitForSeconds(0.1f); 
+
+        
+        SetPriority(camZoom, 5);
+        SetPriority(camMonitor, 20);
+        SetPriority(camPC, 10);
+        yield return new WaitForSeconds(0.1f);
+        
+        float timer = 0;
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            fadeGroup.alpha = 1f - (timer / fadeDuration);
+            yield return null;
+        }
+        fadeGroup.alpha = 0f;
+        yield return null; 
+        
+        yield return new WaitForSeconds(0.4f);
+        SetPriority(camMonitor, 5);
+        yield return null;
+    }
 
     public void ResetCameras()
     {

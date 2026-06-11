@@ -4,6 +4,7 @@ using Unity.Cinemachine;
 public class MenuManager : MonoBehaviour
 {
     private bool isConected = false;
+    private bool isTransitioning = false;
 
     [Header("Mouse configuration")] [SerializeField]
     private Transform pendriveCursor;
@@ -32,6 +33,7 @@ void Start()
 
     void Update()
     {
+        if (isTransitioning) return;
         if (isConected)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -45,7 +47,8 @@ void Start()
 
     public void RegisterUSBConnection(string action, Vector3 PortPosition)
     {
-        if (isConected) return; 
+        if (isConected || isTransitioning) return; 
+        isTransitioning = true;
         isConected = true;
 
         if (pendriveCursor != null) pendriveCursor.position = PortPosition;
@@ -59,17 +62,41 @@ void Start()
                 {
                     uiManager.ShowMenu(action);
                 }
+                isTransitioning = false;
             });
         }
     }
     
-    private void DisconnectUSB()
+    public void DisconnectUSB()
     {
-        isConected = false;
-        PlaySound(USBDisconected);
+        if (isTransitioning || !isConected) return; 
         
-        if (transitionManager != null) transitionManager.ResetCameras();
-        if (uiManager != null) uiManager.HideAllMenus();
+        isTransitioning = true;
+        PlaySound(USBDisconected);
+
+        if (transitionManager != null)
+        {
+            transitionManager.StartReturnSequence(() => 
+            {
+                isConected = false;
+            
+                if (uiManager != null) 
+                {
+                    uiManager.HideAllMenus();
+                    Invoke(nameof(OnReturnTransitionComplete), 1.5f);
+                }
+            });
+        }
+        else
+        {
+                isConected = false;
+            if (uiManager != null) uiManager.HideAllMenus();
+        }
+    }
+    
+    private void OnReturnTransitionComplete()
+    {
+        isTransitioning = false;
     }
     private void MovePendriveWithMouse()
     {
