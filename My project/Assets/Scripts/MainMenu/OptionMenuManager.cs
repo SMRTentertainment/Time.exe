@@ -13,6 +13,11 @@ public class OptionMenuManager : MonoBehaviour
     [SerializeField] private Slider sliderSFX;
     [SerializeField] private Toggle toggleMute;
 
+    [Header("Test Sounds Configuration")]
+    [SerializeField] private AudioSource musicAudioSource; 
+    [SerializeField] private AudioSource sfxAudioSource;   
+    [SerializeField] private AudioClip sfxTestClip;        
+    
     [Header("Video Configuration")]
     [SerializeField] private Toggle toggleFullScreen;
     [SerializeField] private TMP_Dropdown dropdownResolutions;
@@ -24,7 +29,8 @@ public class OptionMenuManager : MonoBehaviour
     private Resolution[] resolutions;
     private float previousMasterVolume = 0.4f; 
 
-    void Start()
+    
+    private void Start()
     {
         Screen.fullScreen = true;
         if (toggleFullScreen != null) toggleFullScreen.isOn = true;
@@ -35,6 +41,11 @@ public class OptionMenuManager : MonoBehaviour
         SetMixerVolume("MasterVol", 0.4f);
         SetMixerVolume("MusicVol", 0.4f);
         SetMixerVolume("SFXVol", 0.4f);
+        
+        if (musicAudioSource != null && !musicAudioSource.isPlaying)
+        {
+            musicAudioSource.Play();
+        }
         
         BuildResolutionDropdown();
 
@@ -123,5 +134,14 @@ public class OptionMenuManager : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+    
+    public void PlayTestSFX()
+    {
+        if (sfxAudioSource != null && sfxTestClip != null)
+        {
+            sfxAudioSource.Stop(); 
+            sfxAudioSource.PlayOneShot(sfxTestClip);
+        }
     }
 }
