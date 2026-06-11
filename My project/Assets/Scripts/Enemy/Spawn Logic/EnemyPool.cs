@@ -6,7 +6,7 @@ public class EnemyPool : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private int initialSize = 50;
 
-    private Queue<GameObject> pool = new();
+    private readonly Queue<GameObject> pool = new();
 
     private void Awake()
     {
@@ -22,6 +22,14 @@ public class EnemyPool : MonoBehaviour
 
         enemy.SetActive(false);
 
+        EnemyHealth health =
+            enemy.GetComponent<EnemyHealth>();
+
+        if (health != null)
+        {
+            health.Pool = this;
+        }
+
         pool.Enqueue(enemy);
     }
 
@@ -33,6 +41,14 @@ public class EnemyPool : MonoBehaviour
         }
 
         GameObject enemy = pool.Dequeue();
+
+        EnemyHealth health =
+            enemy.GetComponent<EnemyHealth>();
+
+        if (health != null)
+        {
+            health.Pool = this;
+        }
 
         enemy.SetActive(true);
 
