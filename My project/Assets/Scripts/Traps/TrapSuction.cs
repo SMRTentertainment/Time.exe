@@ -5,7 +5,33 @@ public class TrapSuction : TrapBehaviour
 {
     [SerializeField] private float suctionForce = 5f;
 
+    [SerializeField]
+    private Collider2D effectCollider;
+
     private readonly List<EnemyMovement> enemies = new();
+
+    private void Awake()
+    {
+        if (effectCollider != null)
+        {
+            effectCollider.enabled = false;
+        }
+    }
+
+    public override void SetActive(bool value)
+    {
+        base.SetActive(value);
+
+        if (effectCollider != null)
+        {
+            effectCollider.enabled = value;
+        }
+
+        if (!value)
+        {
+            enemies.Clear();
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -28,12 +54,17 @@ public class TrapSuction : TrapBehaviour
                 .normalized;
 
             enemy.transform.position +=
-                (Vector3)(direction * suctionForce * Time.fixedDeltaTime);
+                (Vector3)(direction *
+                          suctionForce *
+                          Time.fixedDeltaTime);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!active)
+            return;
+
         EnemyMovement enemy =
             other.GetComponent<EnemyMovement>();
 
@@ -53,10 +84,5 @@ public class TrapSuction : TrapBehaviour
         {
             enemies.Remove(enemy);
         }
-    }
-
-    private void OnDisable()
-    {
-        enemies.Clear();
     }
 }
