@@ -10,11 +10,14 @@ public class EnemyMovement : MonoBehaviour
 
     private float originalSpeed;
 
-    public float MoveSpeed => moveSpeed;
+    private bool isFrozen;
+
+    private PlayerTimeStop playerTimeStop;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
         originalSpeed = moveSpeed;
     }
 
@@ -27,20 +30,62 @@ public class EnemyMovement : MonoBehaviour
         {
             player = playerMovement.transform;
         }
+
+        playerTimeStop =
+            FindFirstObjectByType<PlayerTimeStop>();
+    }
+
+    private void Update()
+    {
+        if (playerTimeStop == null)
+            return;
+
+        bool shouldBeFrozen =
+            playerTimeStop.IsTimeStopped;
+
+        if (shouldBeFrozen && !isFrozen)
+        {
+            Freeze();
+        }
+        else if (!shouldBeFrozen && isFrozen)
+        {
+            Unfreeze();
+        }
     }
 
     private void FixedUpdate()
     {
-        if (player == null || moveSpeed <= 0f)
+        if (player == null)
+            return;
+
+        if (moveSpeed <= 0f)
             return;
 
         Vector2 direction =
-            ((Vector2)player.position - rb.position).normalized;
+            ((Vector2)player.position - rb.position)
+            .normalized;
 
         rb.MovePosition(
             rb.position +
-            direction * moveSpeed * Time.fixedDeltaTime
-        );
+            direction * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    private void Freeze()
+    {
+        isFrozen = true;
+
+        moveSpeed = 0f;
+
+        SetCollidersEnabled(false);
+    }
+
+    private void Unfreeze()
+    {
+        isFrozen = false;
+
+        moveSpeed = originalSpeed;
+
+        SetCollidersEnabled(true);
     }
 
     public void SetMoveSpeed(float newSpeed)
