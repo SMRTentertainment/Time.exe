@@ -13,6 +13,8 @@ public class EnemySpawner : MonoBehaviour
     [Header("Boss")]
     [SerializeField] private GameObject bossPrefab;
 
+    [SerializeField] private EnemyVisualData bossVisual;
+
     [Header("Music")]
     [SerializeField] private AudioSource musicSource;
 
@@ -48,6 +50,7 @@ public class EnemySpawner : MonoBehaviour
             normalMusic != null)
         {
             musicSource.clip = normalMusic;
+            musicSource.loop = true;
             musicSource.Play();
         }
     }
@@ -150,19 +153,33 @@ public class EnemySpawner : MonoBehaviour
     {
         bossSpawned = true;
 
-        int index =
-            Random.Range(0, spawnPoints.Length);
+        int spawnIndex =
+            Random.Range(
+                0,
+                spawnPoints.Length);
 
-        Instantiate(
-            bossPrefab,
-            spawnPoints[index].position,
-            Quaternion.identity);
+        GameObject boss =
+            Instantiate(
+                bossPrefab,
+                spawnPoints[spawnIndex].position,
+                Quaternion.identity);
+
+        EnemyAppearance appearance =
+            boss.GetComponent<EnemyAppearance>();
+
+        if (appearance != null &&
+            bossVisual != null)
+        {
+            appearance.ApplyVisual(
+                bossVisual);
+        }
 
         if (musicSource != null &&
             bossMusic != null)
         {
             musicSource.Stop();
             musicSource.clip = bossMusic;
+            musicSource.loop = true;
             musicSource.Play();
         }
 

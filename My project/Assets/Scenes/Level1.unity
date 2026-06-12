@@ -9104,7 +9104,7 @@ PrefabInstance:
     - target: {fileID: 5726620331191634224, guid: 6cee4c9c5e14fef43a8db2a92d3bbb05, type: 3}
       propertyPath: bossPrefab
       value: 
-      objectReference: {fileID: 4073684751567760060, guid: 0829f453b8380c541b0a1e165e95e050, type: 3}
+      objectReference: {fileID: 4073684751567760060, guid: 8349e4fe51bcfae4585bb1a183e2f19f, type: 3}
     - target: {fileID: 5726620331191634224, guid: 6cee4c9c5e14fef43a8db2a92d3bbb05, type: 3}
       propertyPath: musicSource
       value: 
@@ -9122,6 +9122,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1971448875}
     - target: {fileID: 5726620331191634224, guid: 6cee4c9c5e14fef43a8db2a92d3bbb05, type: 3}
+      propertyPath: bossVisual.enemyName
+      value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 5726620331191634224, guid: 6cee4c9c5e14fef43a8db2a92d3bbb05, type: 3}
       propertyPath: spawnPoints.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -9129,6 +9133,10 @@ PrefabInstance:
       propertyPath: enemyVisuals.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5726620331191634224, guid: 6cee4c9c5e14fef43a8db2a92d3bbb05, type: 3}
+      propertyPath: bossVisual.defaultSprite
+      value: 
+      objectReference: {fileID: 7732794128368898894, guid: 273d82119a8c53f4ba15c517f58e978f, type: 3}
     - target: {fileID: 5726620331191634224, guid: 6cee4c9c5e14fef43a8db2a92d3bbb05, type: 3}
       propertyPath: 'spawnPoints.Array.data[1]'
       value: 
@@ -9145,6 +9153,10 @@ PrefabInstance:
       propertyPath: 'spawnPoints.Array.data[4]'
       value: 
       objectReference: {fileID: 914020893}
+    - target: {fileID: 5726620331191634224, guid: 6cee4c9c5e14fef43a8db2a92d3bbb05, type: 3}
+      propertyPath: bossVisual.animatorController
+      value: 
+      objectReference: {fileID: 9100000, guid: b6552c3aebf2795439614ec6931df748, type: 2}
     - target: {fileID: 5726620331191634224, guid: 6cee4c9c5e14fef43a8db2a92d3bbb05, type: 3}
       propertyPath: enemyVisuals.Array.data[0].sprite
       value: 
