@@ -108,7 +108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d585c561904004ea1abc4c0f5fe509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 200
+  maxHealth: 2000
+  dropChance: 0
+  possibleDrops:
+  - {fileID: 154208892969608367, guid: 7702f1055f41b334b86f11d8c1fe2951, type: 3}
 --- !u!50 &3823044307109421234
 Rigidbody2D:
   serializedVersion: 5

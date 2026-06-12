@@ -2,7 +2,15 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [Header("Health")]
     [SerializeField] private float maxHealth = 10f;
+
+    [Header("Drops")]
+    [SerializeField, Range(0f, 1f)]
+    private float dropChance = 0.1f;
+
+    [SerializeField]
+    private GameObject[] possibleDrops;
 
     private float currentHealth;
 
@@ -46,6 +54,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        TryDropItem();
+
         if (Pool != null)
         {
             Pool.ReturnEnemy(gameObject);
@@ -54,5 +64,29 @@ public class EnemyHealth : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void TryDropItem()
+    {
+        if (possibleDrops == null ||
+            possibleDrops.Length == 0)
+        {
+            return;
+        }
+
+        if (Random.value > dropChance)
+        {
+            return;
+        }
+
+        int randomIndex =
+            Random.Range(
+                0,
+                possibleDrops.Length);
+
+        Instantiate(
+            possibleDrops[randomIndex],
+            transform.position,
+            Quaternion.identity);
     }
 }
