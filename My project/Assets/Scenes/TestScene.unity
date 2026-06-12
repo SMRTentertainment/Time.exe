@@ -264,7 +264,6 @@ GameObject:
   - component: {fileID: 571457713}
   - component: {fileID: 571457712}
   - component: {fileID: 571457711}
-  - component: {fileID: 571457710}
   m_Layer: 0
   m_Name: TestTrampaDirecta
   m_TagString: Untagged
@@ -272,19 +271,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &571457710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 571457709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f86faabf0a9c484cbe2a90408217a23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrapDamage
-  damagePerSecond: 20
 --- !u!114 &571457711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,10 +391,11 @@ Transform:
   m_GameObject: {fileID: 571457709}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1, y: -0.05, z: 0}
+  m_LocalPosition: {x: -4.7, y: 3.52, z: 0}
   m_LocalScale: {x: 3.5120027, y: 1.6531, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1093386962}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &638916244 stripped
@@ -668,6 +655,89 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2415167149396944531, guid: 0bd3bdd6c0bf77142b53b001fc017f5c, type: 3}
   m_PrefabInstance: {fileID: 7372358712640206043}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1093386961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093386962}
+  - component: {fileID: 1093386964}
+  - component: {fileID: 1093386963}
+  m_Layer: 0
+  m_Name: Dano
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1093386962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093386961}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 571457714}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1093386963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093386961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f86faabf0a9c484cbe2a90408217a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrapDamage
+  damagePerSecond: 20
+  effectCollider: {fileID: 1093386964}
+--- !u!58 &1093386964
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093386961}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!114 &1120779053 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2931352789194350705, guid: 6f606ee8af2af434fb3f9a1eacf4f0df, type: 3}
@@ -725,6 +795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrapSuction
   suctionForce: 5
+  effectCollider: {fileID: 1781928761}
 --- !u!58 &1781928761
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -931,6 +1002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrapDamage
   damagePerSecond: 20
+  effectCollider: {fileID: 1979106050}
 --- !u!4 &1981847665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7927961138113715057, guid: 6f606ee8af2af434fb3f9a1eacf4f0df, type: 3}
