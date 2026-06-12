@@ -6,6 +6,10 @@ public class SurvivalTimer : MonoBehaviour
     [SerializeField] private float startTime = 300f;
     [SerializeField] private TextMeshProUGUI timerText;
 
+    [Header("Victory Music")]
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioClip victoryMusic;
+
     private float currentTime;
     private bool timerFinished;
 
@@ -49,6 +53,14 @@ public class SurvivalTimer : MonoBehaviour
 
     private void Victory()
     {
+        if (musicSource != null &&
+            victoryMusic != null)
+        {
+            musicSource.Stop();
+            musicSource.clip = victoryMusic;
+            musicSource.Play();
+        }
+
         GameStateManager.Instance.TriggerVictory();
     }
 }

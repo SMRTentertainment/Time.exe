@@ -8,6 +8,10 @@ public class EnemyHealth : MonoBehaviour
     [Header("Drops")]
     [SerializeField, Range(0f, 1f)]
     private float dropChance = 0.1f;
+    
+    [Header("Audio")]
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private float deathVolume = 1f;
 
     [SerializeField]
     private GameObject[] possibleDrops;
@@ -54,6 +58,11 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayEnemyDeath();
+        }
+
         TryDropItem();
 
         if (Pool != null)

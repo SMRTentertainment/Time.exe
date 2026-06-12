@@ -12,15 +12,22 @@ public class PlayerTimeStop : MonoBehaviour
     [SerializeField] private float drainRate = 1f;
 
     [SerializeField] private float rechargeRate = 0.5f;
-    
+
     [Header("Health Cost")]
     [SerializeField] private float selfDamage = 5f;
 
     [SerializeField] private float damageInterval = 3f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip timeStartSound;
+
+    [SerializeField] private AudioClip timeStopSound;
+
     private float damageTimer;
 
     private PlayerHealth playerHealth;
+
+    private AudioSource audioSource;
 
     private float currentCharge;
 
@@ -39,6 +46,9 @@ public class PlayerTimeStop : MonoBehaviour
     private void Awake()
     {
         playerHealth = GetComponent<PlayerHealth>();
+
+        audioSource = GetComponent<AudioSource>();
+
         currentCharge = maxCharge;
     }
 
@@ -116,6 +126,14 @@ public class PlayerTimeStop : MonoBehaviour
 
         isTimeStopped = true;
 
+        damageTimer = 0f;
+
+        if (audioSource != null &&
+            timeStartSound != null)
+        {
+            audioSource.PlayOneShot(timeStartSound);
+        }
+
         EnemyMovement[] enemies =
             FindObjectsByType<EnemyMovement>(
                 FindObjectsSortMode.None);
@@ -133,6 +151,12 @@ public class PlayerTimeStop : MonoBehaviour
             return;
 
         isTimeStopped = false;
+
+        if (audioSource != null &&
+            timeStopSound != null)
+        {
+            audioSource.PlayOneShot(timeStopSound);
+        }
 
         EnemyMovement[] enemies =
             FindObjectsByType<EnemyMovement>(

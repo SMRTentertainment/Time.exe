@@ -13,6 +13,13 @@ public class EnemySpawner : MonoBehaviour
     [Header("Boss")]
     [SerializeField] private GameObject bossPrefab;
 
+    [Header("Music")]
+    [SerializeField] private AudioSource musicSource;
+
+    [SerializeField] private AudioClip normalMusic;
+
+    [SerializeField] private AudioClip bossMusic;
+
     [Header("Spawn Rate")]
     [SerializeField] private float baseSpawnInterval = 3f;
     [SerializeField] private float minimumSpawnInterval = 0.25f;
@@ -24,6 +31,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float bossThreshold = 60f;
     [SerializeField] private float timeStopPenaltyMultiplier = 0.01f;
 
+    [Header("Enemy Visuals")]
+    [SerializeField] private EnemyVisualData[] enemyVisuals;
+
     private float spawnTimer;
     private float currentSpawnInterval;
 
@@ -33,6 +43,13 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         currentSpawnInterval = baseSpawnInterval;
+
+        if (musicSource != null &&
+            normalMusic != null)
+        {
+            musicSource.clip = normalMusic;
+            musicSource.Play();
+        }
     }
 
     private void Update()
@@ -102,14 +119,31 @@ public class EnemySpawner : MonoBehaviour
         if (spawnPoints.Length == 0)
             return;
 
-        int index =
+        int spawnIndex =
             Random.Range(0, spawnPoints.Length);
 
         GameObject enemy =
             pool.GetEnemy();
 
         enemy.transform.position =
-            spawnPoints[index].position;
+            spawnPoints[spawnIndex].position;
+
+        if (enemyVisuals.Length > 0)
+        {
+            int visualIndex =
+                Random.Range(
+                    0,
+                    enemyVisuals.Length);
+
+            EnemyAppearance appearance =
+                enemy.GetComponent<EnemyAppearance>();
+
+            if (appearance != null)
+            {
+                appearance.ApplyVisual(
+                    enemyVisuals[visualIndex]);
+            }
+        }
     }
 
     private void SpawnBoss()
@@ -123,6 +157,14 @@ public class EnemySpawner : MonoBehaviour
             bossPrefab,
             spawnPoints[index].position,
             Quaternion.identity);
+
+        if (musicSource != null &&
+            bossMusic != null)
+        {
+            musicSource.Stop();
+            musicSource.clip = bossMusic;
+            musicSource.Play();
+        }
 
         Debug.Log("Boss Spawned");
     }

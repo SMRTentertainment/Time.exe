@@ -9,13 +9,17 @@ public class PlayerHealth : MonoBehaviour
     [Header("Invulnerability")]
     [SerializeField] private float invulnerabilityTime = 1f;
     [SerializeField] private float damagedAlpha = 0.5f;
-    
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip damageSound;
 
     private float currentHealth;
     private bool isInvulnerable;
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
+
+    private AudioSource audioSource;
 
     public float CurrentHealth => currentHealth;
     public float MaxHealth => maxHealth;
@@ -26,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         if (spriteRenderer != null)
         {
@@ -43,6 +48,11 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+
+        if (audioSource != null && damageSound != null)
+        {
+            audioSource.PlayOneShot(damageSound);
+        }
 
         if (currentHealth <= 0)
         {

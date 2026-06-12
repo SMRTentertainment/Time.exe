@@ -7,8 +7,16 @@ public class TrapBase : MonoBehaviour, IInteractable
     [SerializeField] private float activeDuration = 3f;
     [SerializeField] private float cooldown = 5f;
 
-    [Header("Animation")]
-    [SerializeField] private Animator animator;
+    [Header("Visual")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    [SerializeField] private Color readyColor = Color.white;
+    [SerializeField] private Color activeColor = Color.green;
+    [SerializeField] private Color cooldownColor = Color.gray;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip activationSound;
 
     private bool isActive;
     private bool isCoolingDown;
@@ -19,6 +27,11 @@ public class TrapBase : MonoBehaviour, IInteractable
     {
         behaviours =
             GetComponentsInChildren<TrapBehaviour>(true);
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = readyColor;
+        }
     }
 
     public void Interact()
@@ -33,9 +46,15 @@ public class TrapBase : MonoBehaviour, IInteractable
     {
         isActive = true;
 
-        if (animator != null)
+        if (spriteRenderer != null)
         {
-            animator.SetBool("Active", true);
+            spriteRenderer.color = activeColor;
+        }
+
+        if (audioSource != null &&
+            activationSound != null)
+        {
+            audioSource.PlayOneShot(activationSound);
         }
 
         foreach (var behaviour in behaviours)
@@ -50,16 +69,21 @@ public class TrapBase : MonoBehaviour, IInteractable
             behaviour.SetActive(false);
         }
 
-        if (animator != null)
-        {
-            animator.SetBool("Active", false);
-        }
-
         isActive = false;
         isCoolingDown = true;
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = cooldownColor;
+        }
 
         yield return new WaitForSeconds(cooldown);
 
         isCoolingDown = false;
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = readyColor;
+        }
     }
 }
