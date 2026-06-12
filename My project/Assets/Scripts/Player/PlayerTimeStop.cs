@@ -12,6 +12,15 @@ public class PlayerTimeStop : MonoBehaviour
     [SerializeField] private float drainRate = 1f;
 
     [SerializeField] private float rechargeRate = 0.5f;
+    
+    [Header("Health Cost")]
+    [SerializeField] private float selfDamage = 5f;
+
+    [SerializeField] private float damageInterval = 3f;
+
+    private float damageTimer;
+
+    private PlayerHealth playerHealth;
 
     private float currentCharge;
 
@@ -29,6 +38,7 @@ public class PlayerTimeStop : MonoBehaviour
 
     private void Awake()
     {
+        playerHealth = GetComponent<PlayerHealth>();
         currentCharge = maxCharge;
     }
 
@@ -57,6 +67,18 @@ public class PlayerTimeStop : MonoBehaviour
             currentCharge -= drainRate * delta;
 
             totalTimeUsed += delta;
+
+            damageTimer += delta;
+
+            if (damageTimer >= damageInterval)
+            {
+                damageTimer -= damageInterval;
+
+                if (playerHealth != null)
+                {
+                    playerHealth.TakeDamage(selfDamage);
+                }
+            }
 
             if (currentCharge <= 0f)
             {

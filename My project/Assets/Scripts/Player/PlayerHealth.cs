@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     [Header("Invulnerability")]
     [SerializeField] private float invulnerabilityTime = 1f;
     [SerializeField] private float damagedAlpha = 0.5f;
+    
 
     private float currentHealth;
     private bool isInvulnerable;

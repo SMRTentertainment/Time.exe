@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: ee70e26fb8905bb46bf5a0971c7d3db1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3648578656076747125
+    second: pingu-linux-sub-Sheet-64x64_0
+  - first:
+      213: -5756159401872470912
+    second: pingu-linux-sub-Sheet-64x64_1
+  - first:
+      213: -7137938525369252904
+    second: pingu-linux-sub-Sheet-64x64_2
+  - first:
+      213: 3378194878000737378
+    second: pingu-linux-sub-Sheet-64x64_3
+  - first:
+      213: 2569594331207969192
+    second: pingu-linux-sub-Sheet-64x64_4
+  - first:
+      213: 785687958385008935
+    second: pingu-linux-sub-Sheet-64x64_5
+  - first:
+      213: 6973902621763442787
+    second: pingu-linux-sub-Sheet-64x64_6
+  - first:
+      213: -7972134518957491697
+    second: pingu-linux-sub-Sheet-64x64_7
+  - first:
+      213: 2811929118776120488
+    second: pingu-linux-sub-Sheet-64x64_8
+  - first:
+      213: 8406888992428001145
+    second: pingu-linux-sub-Sheet-64x64_9
+  - first:
+      213: -224315812622965133
+    second: pingu-linux-sub-Sheet-64x64_10
+  - first:
+      213: 5774714247531863891
+    second: pingu-linux-sub-Sheet-64x64_11
+  - first:
+      213: -3177510001549243577
+    second: pingu-linux-sub-Sheet-64x64_12
+  - first:
+      213: -8261438519256857115
+    second: pingu-linux-sub-Sheet-64x64_13
+  - first:
+      213: 6906211949078390841
+    second: pingu-linux-sub-Sheet-64x64_14
+  - first:
+      213: -6981441020068383794
+    second: pingu-linux-sub-Sheet-64x64_15
+  - first:
+      213: 7324929340765715772
+    second: pingu-linux-sub-Sheet-64x64_16
+  - first:
+      213: 4558829355168413375
+    second: pingu-linux-sub-Sheet-64x64_17
+  - first:
+      213: -8382171342495568474
+    second: pingu-linux-sub-Sheet-64x64_18
+  - first:
+      213: 2486134083101939851
+    second: pingu-linux-sub-Sheet-64x64_19
+  - first:
+      213: 5249687697858475052
+    second: pingu-linux-sub-Sheet-64x64_20
+  - first:
+      213: -3547733026243890353
+    second: pingu-linux-sub-Sheet-64x64_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 383
+        width: 59
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8e29751b05ad5dc0800000000000000
+      internalID: -3648578656076747125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 383
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08ccddc75830e10b0800000000000000
+      internalID: -5756159401872470912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_2
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 383
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d34ac6cab2f0fc90800000000000000
+      internalID: -7137938525369252904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_3
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 383
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26c2745d752c1ee20800000000000000
+      internalID: 3378194878000737378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_4
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 255
+        width: 56
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a922801e6809a320800000000000000
+      internalID: 2569594331207969192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_5
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 331
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72127df090357ea00800000000000000
+      internalID: 785687958385008935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_6
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 255
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36810643c7748c060800000000000000
+      internalID: 6973902621763442787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_7
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 255
+        width: 56
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0ab8e7a4e94d5190800000000000000
+      internalID: -7972134518957491697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_8
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 255
+        width: 49
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a45a32a2aaf50720800000000000000
+      internalID: 2811929118776120488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_9
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 203
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97700db3ff44ba470800000000000000
+      internalID: 8406888992428001145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_10
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 203
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 376ea17f4f113ecf0800000000000000
+      internalID: -224315812622965133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_11
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 203
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f168b2308e32050800000000000000
+      internalID: 5774714247531863891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_12
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 203
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74b086f1d7737e3d0800000000000000
+      internalID: -3177510001549243577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_13
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 127
+        width: 49
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e547fd0079795d80800000000000000
+      internalID: -8261438519256857115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_14
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 127
+        width: 49
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93820605d2bc7df50800000000000000
+      internalID: 6906211949078390841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_15
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 127
+        width: 49
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec3bb7aa160fc1f90800000000000000
+      internalID: -6981441020068383794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_16
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 127
+        width: 49
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3d3d212d6067a560800000000000000
+      internalID: 7324929340765715772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_17
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 74
+        width: 50
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb6bf621527344f30800000000000000
+      internalID: 4558829355168413375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_18
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 63
+        width: 52
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ada71c139b8cab80800000000000000
+      internalID: -8382171342495568474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_19
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 0
+        width: 61
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b885847c6c5808220800000000000000
+      internalID: 2486134083101939851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_20
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 0
+        width: 49
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c24b79ca523aad840800000000000000
+      internalID: 5249687697858475052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pingu-linux-sub-Sheet-64x64_21
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 0
+        width: 49
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f43bfccfb9be3cec0800000000000000
+      internalID: -3547733026243890353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pingu-linux-sub-Sheet-64x64_0: -3648578656076747125
+      pingu-linux-sub-Sheet-64x64_1: -5756159401872470912
+      pingu-linux-sub-Sheet-64x64_10: -224315812622965133
+      pingu-linux-sub-Sheet-64x64_11: 5774714247531863891
+      pingu-linux-sub-Sheet-64x64_12: -3177510001549243577
+      pingu-linux-sub-Sheet-64x64_13: -8261438519256857115
+      pingu-linux-sub-Sheet-64x64_14: 6906211949078390841
+      pingu-linux-sub-Sheet-64x64_15: -6981441020068383794
+      pingu-linux-sub-Sheet-64x64_16: 7324929340765715772
+      pingu-linux-sub-Sheet-64x64_17: 4558829355168413375
+      pingu-linux-sub-Sheet-64x64_18: -8382171342495568474
+      pingu-linux-sub-Sheet-64x64_19: 2486134083101939851
+      pingu-linux-sub-Sheet-64x64_2: -7137938525369252904
+      pingu-linux-sub-Sheet-64x64_20: 5249687697858475052
+      pingu-linux-sub-Sheet-64x64_21: -3547733026243890353
+      pingu-linux-sub-Sheet-64x64_3: 3378194878000737378
+      pingu-linux-sub-Sheet-64x64_4: 2569594331207969192
+      pingu-linux-sub-Sheet-64x64_5: 785687958385008935
+      pingu-linux-sub-Sheet-64x64_6: 6973902621763442787
+      pingu-linux-sub-Sheet-64x64_7: -7972134518957491697
+      pingu-linux-sub-Sheet-64x64_8: 2811929118776120488
+      pingu-linux-sub-Sheet-64x64_9: 8406888992428001145
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
