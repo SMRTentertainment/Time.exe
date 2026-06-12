@@ -5,7 +5,7 @@ public class MainMenuActions : MonoBehaviour
 {
     public void LoadPlayScene()
     {
-        SceneManager.LoadScene("Escena1");
+        SceneManager.LoadScene("Level1");
     }
 
     public void LoadTutorialScene()
