@@ -11,11 +11,13 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] private GameObject victoryPanel;
     [SerializeField] private GameObject gameplayPanel;
 
-    public GameState CurrentState { get; private set; } = GameState.Playing;
+    public GameState CurrentState { get; private set; }
+        = GameState.Playing;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance != null &&
+            Instance != this)
         {
             Destroy(gameObject);
             return;
@@ -57,7 +59,11 @@ public class GameStateManager : MonoBehaviour
     {
         CurrentState = GameState.Paused;
 
+        gameplayPanel.SetActive(false);
+
         pausePanel.SetActive(true);
+        gameOverPanel.SetActive(false);
+        victoryPanel.SetActive(false);
 
         Time.timeScale = 0f;
     }
@@ -67,6 +73,9 @@ public class GameStateManager : MonoBehaviour
         CurrentState = GameState.Playing;
 
         pausePanel.SetActive(false);
+        gameOverPanel.SetActive(false);
+        victoryPanel.SetActive(false);
+
         gameplayPanel.SetActive(true);
 
         Time.timeScale = 1f;
@@ -108,7 +117,8 @@ public class GameStateManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(
+            SceneManager.GetActiveScene().buildIndex);
     }
 
     public void BackToMenu()
